@@ -78,8 +78,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body class="bg-light">
-
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
         <div class="container-fluid">
             <a href="select.php" class="navbar-brand mb-0 h1">
@@ -98,13 +96,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </nav>
         </div>
     </nav>
-
-    <!-- Main Container -->
     <div class="container-fluid py-4">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-6">
-                
-                <!-- Header Card -->
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body text-center">
                         <div class="mb-3">
@@ -121,8 +115,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     </div>
                 </div>
-
-                <!-- Alert Messages -->
                 <?php if ($error): ?>
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <i class="bi bi-exclamation-triangle-fill me-2"></i>
@@ -138,8 +130,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     </div>
                 <?php endif; ?>
-
-                <!-- Form Card -->
                 <div class="card border-0 shadow-sm">
                     <div class="card-header bg-white border-bottom">
                         <h5 class="card-title mb-0 text-primary">
@@ -150,7 +140,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="card-body">
                         <form method="POST" class="needs-validation" novalidate>
                             <div class="row">
-                                <!-- ID Number -->
                                 <div class="col-md-6 mb-3">
                                     <label for="idNumber" class="form-label fw-bold">
                                         <i class="bi bi-card-text me-1 text-primary"></i>
@@ -160,8 +149,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                            class="form-control form-control-lg"
                                            value="<?= htmlspecialchars($row['idNumber']) ?>" required>
                                 </div>
-
-                                <!-- Age -->
                                 <div class="col-md-6 mb-3">
                                     <label for="age" class="form-label fw-bold">
                                         <i class="bi bi-calendar3 me-1 text-primary"></i>
@@ -172,8 +159,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                            value="<?= htmlspecialchars($row['age']) ?>" required>
                                 </div>
                             </div>
-
-                            <!-- Full Name -->
                             <div class="mb-3">
                                 <label for="name" class="form-label fw-bold">
                                     <i class="bi bi-person me-1 text-primary"></i>
@@ -185,7 +170,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
 
                             <div class="row">
-                                <!-- Email -->
                                 <div class="col-md-6 mb-3">
                                     <label for="email" class="form-label fw-bold">
                                         <i class="bi bi-envelope me-1 text-primary"></i>
@@ -195,8 +179,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                            class="form-control form-control-lg"
                                            value="<?= htmlspecialchars($row['email']) ?>" required>
                                 </div>
-
-                                <!-- Contact Number -->
                                 <div class="col-md-6 mb-3">
                                     <label for="contactNumber" class="form-label fw-bold">
                                         <i class="bi bi-telephone me-1 text-primary"></i>
@@ -209,8 +191,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
 
                             <div class="row">
-                                <!-- Course -->
-                                <!-- Course -->
                                 <div class="col-md-6 mb-3">
                                     <label for="course" class="form-label fw-bold">
                                         <i class="bi bi-book me-1 text-primary"></i>
@@ -227,10 +207,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <option value="BSCE" <?php if ($row['course'] == 'BSCE') echo 'selected'; ?>>BSCE</option>
                                     </select>
                                 </div>
-
-
-
-                                <!-- Year Level -->
                                 <div class="col-md-6 mb-3">
                                     <label for="yearLevel" class="form-label fw-bold">
                                         <i class="bi bi-calendar-check me-1 text-primary"></i>
@@ -245,8 +221,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </select>
                                 </div>
                             </div>
-
-                            <!-- Buttons -->
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4 pt-3 border-top">
                                 <a href="select.php" class="btn btn-outline-secondary btn-lg">
                                     <i class="bi bi-arrow-left me-2"></i> Cancel
@@ -258,8 +232,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </form>
                     </div>
                 </div>
-
-                <!-- Student Summary -->
                 <div class="card border-0 shadow-sm mt-4">
                     <div class="card-header bg-light">
                         <h6 class="card-title mb-0 text-muted">

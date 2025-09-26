@@ -1,7 +1,6 @@
 <?php
 include 'db_connect.php';
 
-// Handle POST delete
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && is_numeric($_POST['id'])) {
     $id = intval($_POST['id']);
     $conn->query("DELETE FROM students WHERE id=$id");
@@ -9,21 +8,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && is_numeric($
     exit;
 }
 
-// Default sorting
 $sort = "id";
 $order = "ASC";
 
-// Check if sorting is requested
 if (isset($_GET['sort'])) $sort = $_GET['sort'];
 if (isset($_GET['order'])) $order = $_GET['order'];
 
-// Toggle order for next click
 $nextOrder = ($order == "ASC") ? "DESC" : "ASC";
-
-// Fetch data with sorting
 $result = $conn->query("SELECT * FROM students ORDER BY $sort $order");
 
-// Function to add Bootstrap sort icons
 function sortIcon($column, $sort, $order) {
     if ($column == $sort) return $order == "ASC" ? '<i class="bi bi-caret-up-fill"></i>' : '<i class="bi bi-caret-down-fill"></i>';
     return '<i class="bi bi-arrow-down-up"></i>';
@@ -41,7 +34,6 @@ function sortIcon($column, $sort, $order) {
 </head>
 <body class="bg-light">
 
-<!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
     <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">
@@ -50,9 +42,7 @@ function sortIcon($column, $sort, $order) {
     </div>
 </nav>
 
-<!-- Main Container -->
 <div class="container-fluid py-4">
-    <!-- Header Section -->
     <div class="row mb-4">
         <div class="col-12">
             <div class="card border-0 shadow-sm">
@@ -70,8 +60,6 @@ function sortIcon($column, $sort, $order) {
             </div>
         </div>
     </div>
-
-    <!-- Table Section -->
     <div class="row">
         <div class="col-12">
             <div class="card border-0 shadow-sm">
@@ -127,7 +115,6 @@ function sortIcon($column, $sort, $order) {
                         </table>
                     </div>
                 </div>
-                <!-- Delete Modal -->
                 <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content border-0 shadow-lg">
@@ -148,7 +135,6 @@ function sortIcon($column, $sort, $order) {
                         </div>
                     </div>
                 </div>
-                <!-- End Delete Modal -->
             </div>
         </div>
     </div>
